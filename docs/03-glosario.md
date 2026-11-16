@@ -55,6 +55,7 @@ Términos, siglas y herramientas usados en la propuesta, explicados en una líne
 | **RTO / RPO** | RTO: tiempo máximo para recuperar el servicio. RPO: cantidad máxima de datos que se pueden perder. |
 | **Warm standby / Pilot light** | Estrategias de DR: réplica mínima siempre encendida / solo datos replicados y cómputo bajo demanda. |
 | **Respaldo búnker** | Copia inmutable de los datos en otro proveedor de nube, para sobrevivir a una falla total del proveedor principal. |
+| **IaC** | *Infrastructure as Code*: la infraestructura se define en archivos (p. ej. Terraform) y se crea idéntica con un comando. |
 | **Multi-AZ** | Desplegar en varias zonas de disponibilidad (data centers separados) de una misma región. |
 
 ## Seguridad e identidad
@@ -78,6 +79,8 @@ Términos, siglas y herramientas usados en la propuesta, explicados en una líne
 | **CEN/TS 18099 (IAD)** | Norma que certifica la detección de ataques de **inyección** (deepfakes enviados directo al sistema, sin cámara). |
 | **Atestación de app** | *Play Integrity* (Android) / *App Attest* (iOS): confirman que la app es la original y corre en un dispositivo real. |
 | **Certificate pinning** | La app solo confía en el certificado del banco; evita interceptar la comunicación. |
+| **Namespace** | División lógica dentro de Kubernetes para separar grupos de servicios y aplicarles políticas de red y permisos. |
+| **Service mesh** | Capa (p. ej. Istio) que gestiona automáticamente mTLS, reintentos y observabilidad entre servicios, sin tocar el código. |
 | **mTLS** | TLS mutuo: cliente y servidor se autentican con certificados. |
 | **Keycloak** | IdP open source; en la propuesta autentica a los clientes. |
 | **Microsoft Entra ID** | IdP corporativo de Microsoft; en la propuesta autentica a los empleados. |
@@ -89,6 +92,8 @@ Términos, siglas y herramientas usados en la propuesta, explicados en una líne
 |---|---|
 | **EKS** (+ Karpenter, Graviton) | Kubernetes administrado donde corren los microservicios; Karpenter escala nodos y Graviton reduce costo. |
 | **API Gateway** | Puerta de entrada a las APIs: límites de uso, validación y enlace privado (**VPC Link**) hacia los servicios. |
+| **ALB** | Balanceador de aplicaciones; en la propuesta expone solo el login de Keycloak. |
+| **VPC / Subred** | Red privada del banco en AWS, dividida en subredes pública (salida/entrada controlada), de aplicación y de datos. |
 | **NLB** | Balanceador de red privado entre API Gateway y EKS. |
 | **CloudFront** | CDN: sirve la web desde ubicaciones cercanas al usuario. |
 | **WAF / Shield** | Firewall de aplicaciones web / protección contra ataques DDoS. |
@@ -103,7 +108,7 @@ Términos, siglas y herramientas usados en la propuesta, explicados en una líne
 | **Kinesis Data Streams** | Flujo de datos en tiempo real que transporta los cambios capturados por DMS. |
 | **KMS / Secrets Manager** | Gestión de llaves de cifrado / gestión de contraseñas y secretos. |
 | **SES / End User Messaging** | Envío de correos / envío de SMS. |
-| **Direct Connect / Transit Gateway** | Enlace dedicado entre el data center del banco y AWS / concentrador de redes. |
+| **Direct Connect / Transit Gateway / DX Gateway** | Enlace dedicado entre el data center del banco y AWS / concentrador de redes / une el enlace con varias regiones (por eso DR usa el mismo Direct Connect). |
 | **NAT Gateway** | Salida controlada a internet desde redes privadas. |
 | **CloudWatch, GuardDuty, Security Hub, CloudTrail, Config** | Monitoreo, detección de amenazas, postura de seguridad, registro de acciones y cumplimiento de configuración. |
 | **AWS Backup** | Respaldos centralizados e inmutables (*vault lock*). |

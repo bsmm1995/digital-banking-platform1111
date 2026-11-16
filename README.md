@@ -9,7 +9,7 @@ Propuesta al **reto técnico de Arquitecto de Soluciones**: arquitectura de una 
 | Tema | Decisión |
 |---|---|
 | Cloud | **AWS** us-east-1 (principal) + us-east-2 (DR); EKS, Aurora, ElastiCache. |
-| Integración | **Amazon API Gateway** → **BFF Web / BFF Móvil** (Spring Boot WebFlux) → microservicios hexagonales. |
+| Integración | **Amazon API Gateway** (público para clientes, privado para backoffice) → **BFF Web / BFF Móvil** (Spring Boot WebFlux) → microservicios hexagonales. |
 | Transferencias | **Saga orquestada** + idempotencia + outbox; rieles: core (propias), **BCE Pagos Instantáneos (ISO 20022)** y **SPI**. |
 | Eventos | **EventBridge + SQS** (serverless); cambios del core capturados con **AWS DMS**. |
 | Identidad | OAuth 2.0 **Authorization Code + PKCE** con perfil **FAPI 2.0**; **Keycloak** para clientes y **Entra ID** para empleados (reemplazables por el IdP vigente de la organización). |
