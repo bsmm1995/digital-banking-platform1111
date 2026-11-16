@@ -1,0 +1,9 @@
+# SO / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Respaldos de draw.io
+*.drawio.bkp
+.$*.bkp
