@@ -9,7 +9,7 @@ El reto pide una SPA web, una app multiplataforma y 2 opciones de stack justific
 
 ## Decisión
 
-**Opción A, elegida:** Angular + Flutter. **Opción B, evaluada:** React + React Native. Los dos lenguajes se mitigan con contract-first (OpenAPI genera los clientes).
+**Opción A, elegida:** Angular 22 + Flutter 3.47 (versiones de referencia). **Opción B, evaluada:** React + React Native. Los dos lenguajes se mitigan con contract-first (OpenAPI genera los clientes).
 
 ## Alternativas descartadas
 

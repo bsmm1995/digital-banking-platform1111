@@ -2,6 +2,22 @@
 
 > Para cada tecnología: **por qué se eligió frente a las alternativas**, **qué riesgo trae** y **cómo se mitiga**. Complementa las [justificaciones](01-justificaciones.md) y los [ADR](adr/README.md). Los términos están en el [glosario](03-glosario.md).
 
+## Versiones de referencia (noviembre 2026)
+
+Criterio: **la última versión LTS** cuando el proyecto la publica; si no publica LTS, la **última versión estable** soportada.
+
+| Tecnología | Versión propuesta | Política de soporte |
+|---|---|---|
+| Java (JDK) | **25 LTS** | LTS de Oracle/OpenJDK; la próxima LTS (29) se espera en septiembre de 2027. |
+| Spring Boot (WebFlux) | **4.1** (Spring Framework 7) | Sin LTS comunitario: cada versión menor recibe soporte OSS unos 12 meses. Pasar a 4.2 cuando salga su GA (prevista para noviembre de 2026). |
+| Quarkus | **3.40 LTS** | Una LTS cada 6 meses, con 12 meses de parches. |
+| GraalVM / Mandrel | **25** (para Java 25) | Sigue la versión de Java. |
+| Angular | **22** | Desde la v22, una versión mayor por año con 12 meses activos y 12 de LTS (hasta junio de 2028). |
+| Flutter (Dart 3) | **3.47** o la estable más reciente | Sin LTS: versión estable trimestral; solo la última recibe correcciones. |
+| Keycloak | **26.8** | Sin LTS: solo la última versión menor recibe parches (4 al año). Para soporte extendido, Red Hat build of Keycloak. |
+
+> Las versiones se confirman al iniciar el proyecto; la regla de actualización (no quedarse más de una versión atrás) importa más que el número exacto.
+
 ## Riesgos transversales
 
 | Riesgo | Mitigación |
@@ -16,9 +32,9 @@
 
 | Tecnología | Por qué (frente a alternativas) | Riesgos | Mitigación |
 |---|---|---|---|
-| **Java 25 (LTS)** | Lenguaje estándar en la banca; soporte largo, talento disponible y librerías maduras de seguridad. Un solo lenguaje para todo el backend. | Consumo de memoria mayor que Go o Rust en servicios pequeños. | Quarkus nativo en los servicios livianos; Graviton para bajar costo. |
-| **Spring Boot WebFlux** (BFF y dominio) | Reactivo: más solicitudes con menos hilos, ideal para BFF que llaman a varios servicios a la vez. Ecosistema más grande que Quarkus o Micronaut (seguridad, Resilience4j, OpenTelemetry). | Curva alta; depuración más difícil; una llamada bloqueante (p. ej. JDBC) degrada todo el servicio. | R2DBC y clientes no bloqueantes, BlockHound en pruebas, revisiones de código. Los hilos virtuales de Java 25 quedan como opción para servicios simples. |
-| **Quarkus nativo** (Notificaciones, Auditoría) | Arranca en milisegundos y usa poca memoria, similar a Go, sin agregar un segundo lenguaje ni otra cadena de análisis de seguridad. | Compilación nativa lenta; la reflexión debe declararse; algunas librerías no son compatibles. | Usarlo solo en servicios simples; pruebas del binario nativo en CI; modo JVM como respaldo. |
+| **Java 25 LTS** | Lenguaje estándar en la banca; soporte largo, talento disponible y librerías maduras de seguridad. Un solo lenguaje para todo el backend. | Consumo de memoria mayor que Go o Rust en servicios pequeños. | Quarkus nativo en los servicios livianos; Graviton para bajar costo. |
+| **Spring Boot 4.1 WebFlux** (BFF y dominio) | Reactivo: más solicitudes con menos hilos, ideal para BFF que llaman a varios servicios a la vez. Ecosistema más grande que Quarkus o Micronaut (seguridad, Resilience4j, OpenTelemetry). | Curva alta; depuración más difícil; una llamada bloqueante (p. ej. JDBC) degrada todo el servicio. | R2DBC y clientes no bloqueantes, BlockHound en pruebas, revisiones de código. Los hilos virtuales de Java 25 quedan como opción para servicios simples. |
+| **Quarkus 3.40 LTS nativo** (Notificaciones, Auditoría) | Arranca en milisegundos y usa poca memoria, similar a Go, sin agregar un segundo lenguaje ni otra cadena de análisis de seguridad. | Compilación nativa lenta; la reflexión debe declararse; algunas librerías no son compatibles. | Usarlo solo en servicios simples; pruebas del binario nativo en CI; modo JVM como respaldo. |
 
 ## Integración y eventos
 
@@ -41,7 +57,7 @@
 
 | Tecnología | Por qué (frente a alternativas) | Riesgos | Mitigación |
 |---|---|---|---|
-| **Keycloak** (clientes) | Código abierto, soporta FAPI 2.0 y passkeys, se despliega en la nube del banco. Frente a Cognito: más control sobre perfiles de seguridad; frente a Auth0: sin costo por usuario. | Lo opera el banco: actualizaciones frecuentes, alta disponibilidad y parches de seguridad son responsabilidad propia. | Operador de Keycloak en EKS, clúster multi-AZ, actualizaciones planificadas; soporte comercial (Red Hat build of Keycloak) si se requiere. Reemplazable por el IdP vigente. |
+| **Keycloak 26.8** (clientes) | Código abierto, soporta FAPI 2.0 y passkeys, se despliega en la nube del banco. Frente a Cognito: más control sobre perfiles de seguridad; frente a Auth0: sin costo por usuario. | Lo opera el banco: actualizaciones frecuentes, alta disponibilidad y parches de seguridad son responsabilidad propia. | Operador de Keycloak en EKS, clúster multi-AZ, actualizaciones planificadas; soporte comercial (Red Hat build of Keycloak) si se requiere. Reemplazable por el IdP vigente. |
 | **Microsoft Entra ID** (empleados) | Estándar corporativo en la banca ecuatoriana: SSO, MFA y acceso condicional ya existentes. | Costo de licencias (acceso condicional requiere planes superiores); dependencia del proveedor. | Reutilizar el tenant existente del banco; integración estándar OIDC, reemplazable. |
 | **Passkeys + biometría del dispositivo** | Resistentes a phishing; la biometría nunca sale del teléfono. | Pérdida o cambio de dispositivo; usuarios poco habituados. | Recuperación con nueva prueba de vida (KYC); OTP como respaldo temporal. |
 | **Proveedor KYC** (FaceTec, Facephi, iProov) | Prueba de vida certificada (ISO 30107-3) y detección de deepfakes; construirla internamente no es viable. | Costo por verificación; dependencia del proveedor; SDK disponible para Flutter. | Adaptador hexagonal para cambiar de proveedor; verificar plugin Flutter en la evaluación. |
@@ -50,8 +66,8 @@
 
 | Tecnología | Por qué (frente a alternativas) | Riesgos | Mitigación |
 |---|---|---|---|
-| **Angular** (web) | Estructura definida, TypeScript obligatorio y seguridad integrada (protección XSS). Muy usado en banca. Frente a React: menos decisiones por equipo y más consistencia. | **Versión mayor cada 6 meses** y soporte de cada versión por unos 18 meses: obliga a migrar con frecuencia. Curva alta. Cambios de paradigma en curso (signals, sin zone.js). | Actualizar cada versión mayor con `ng update` dentro del ciclo normal (no acumular). Lineamientos comunes y librería de componentes propia. |
-| **Flutter** (móvil) | Un solo código para Android e iOS con rendimiento casi nativo; fuerte en fintech. Frente a React Native: UI más consistente entre plataformas. | Talento en Dart más escaso; dependencia de Google; los SDK nativos (KYC, atestación) necesitan plugins; apps más pesadas. | Contract-first para generar clientes; *platform channels* para SDK nativos; capacitación del equipo. |
+| **Angular 22** (web) | Estructura definida, TypeScript obligatorio y seguridad integrada (protección XSS). Muy usado en banca. Frente a React: menos decisiones por equipo y más consistencia. | **Migraciones obligatorias:** desde la v22 sale una versión mayor por año con unos 24 meses de soporte; antes eran cada 6 meses. Si se acumulan versiones, la actualización se vuelve un proyecto. Curva alta. Cambios de paradigma en curso (signals, sin zone.js). | Actualizar cada versión mayor con `ng update` dentro del ciclo normal, como máximo una versión atrás. Lineamientos comunes y librería de componentes propia. |
+| **Flutter 3.47** (móvil) | Un solo código para Android e iOS con rendimiento casi nativo; fuerte en fintech. Frente a React Native: UI más consistente entre plataformas. | No tiene LTS: hay que seguir las versiones estables trimestrales. Talento en Dart más escaso; dependencia de Google; los SDK nativos (KYC, atestación) necesitan plugins; apps más pesadas. | Contract-first para generar clientes; *platform channels* para SDK nativos; capacitación del equipo. |
 
 ## Infraestructura
 

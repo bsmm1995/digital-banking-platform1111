@@ -16,7 +16,7 @@
 
 - **Amazon API Gateway** resuelve lo transversal: throttling, cuotas, validación de contrato y token, y enlace privado hacia los servicios.
 - La **orquestación vive en un BFF por canal** (*Backend for Frontend*: BFF Web y BFF Móvil, en Spring Boot WebFlux). Un gateway no debe contener lógica de negocio.
-- **Un solo lenguaje, Java 25, con dos frameworks:** Spring Boot WebFlux para los BFF y los servicios de dominio (ecosistema maduro, reactivo); **Quarkus** compilado a **imagen nativa** (GraalVM/Mandrel) para los servicios transversales livianos (Notificaciones y Auditoría), que arrancan en milisegundos y usan poca memoria. Se descarta un segundo lenguaje (Go): un mismo equipo, mismas librerías de seguridad y observabilidad y un solo pipeline de análisis (SAST/SCA).
+- **Un solo lenguaje, Java 25 LTS, con dos frameworks:** Spring Boot 4.1 WebFlux para los BFF y los servicios de dominio (ecosistema maduro, reactivo); **Quarkus 3.40 LTS** compilado a **imagen nativa** (GraalVM/Mandrel) para los servicios transversales livianos (Notificaciones y Auditoría), que arrancan en milisegundos y usan poca memoria. Se descarta un segundo lenguaje (Go): un mismo equipo, mismas librerías de seguridad y observabilidad y un solo pipeline de análisis (SAST/SCA).
 - Servicios que orquesta: **Clientes**, **Movimientos** y **Transferencias**, como pide el reto. Se agregan cinco justificados:
   - **Onboarding**, para el alta digital.
   - **Conector de Pagos BCE**, que aísla la mensajería del Banco Central.
@@ -104,12 +104,12 @@
 
 ## 8. Frontend: 2 opciones evaluadas
 
-| | **A. Angular + Flutter (elegida)** | B. React + React Native |
+| | **A. Angular 22 + Flutter 3.47 (elegida)** | B. React + React Native |
 |---|---|---|
 | **Fortalezas** | Angular: estructura definida, TypeScript obligatorio y seguridad integrada (protección XSS, CSP). Es muy usado en banca. Flutter: compila a código nativo y es fuerte en fintech. | El ecosistema y la oferta de talento más grandes. Un solo lenguaje (TypeScript). |
 | **Desventajas** | Curva de aprendizaje alta. Dos lenguajes (TypeScript y Dart). | Menos estructura: más decisiones por equipo y riesgo de inconsistencia. |
 
-**Por qué A:** la banca en línea es una aplicación **transaccional detrás de un login**, donde pesan más la consistencia y la seguridad que la flexibilidad. La desventaja de los dos lenguajes se mitiga con **contract-first**: los contratos OpenAPI generan los clientes de web y móvil. Los riesgos de cada opción (por ejemplo, las migraciones frecuentes de Angular) están en [04 · Tecnologías y riesgos](04-tecnologias-y-riesgos.md#frontend).
+**Por qué A:** la banca en línea es una aplicación **transaccional detrás de un login**, donde pesan más la consistencia y la seguridad que la flexibilidad. La desventaja de los dos lenguajes se mitiga con **contract-first**: los contratos OpenAPI generan los clientes de web y móvil. Las versiones propuestas y los riesgos de cada opción (por ejemplo, las migraciones frecuentes de Angular) están en [04 · Tecnologías y riesgos](04-tecnologias-y-riesgos.md#frontend).
 
 ## 9. Patrones aplicados
 

@@ -9,15 +9,15 @@ Propuesta al **reto técnico de Arquitecto de Soluciones**: arquitectura de una 
 | Tema | Decisión |
 |---|---|
 | Cloud | **AWS** us-east-1 (principal) + us-east-2 (DR); EKS, Aurora, ElastiCache. |
-| Integración | **Amazon API Gateway** (público para clientes, privado para backoffice) → **BFF Web / BFF Móvil** (Spring Boot WebFlux) → microservicios hexagonales en **Java 25**: Spring Boot WebFlux para dominio y Quarkus nativo para los transversales livianos (Notificaciones, Auditoría). |
+| Integración | **Amazon API Gateway** (público para clientes, privado para backoffice) → **BFF Web / BFF Móvil** (Spring Boot 4.1 WebFlux) → microservicios hexagonales en **Java 25 LTS**: Spring Boot 4.1 WebFlux para dominio y Quarkus 3.40 LTS nativo para los transversales livianos (Notificaciones, Auditoría). |
 | Transferencias | **Saga orquestada** + idempotencia + outbox; rieles: core (propias), **BCE Pagos Instantáneos (ISO 20022)** y **SPI**. |
 | Eventos | **EventBridge + SQS** (serverless); cambios del core capturados con **AWS DMS**. |
-| Identidad | OAuth 2.0 **Authorization Code + PKCE** con perfil **FAPI 2.0**; **Keycloak** para clientes y **Entra ID** para empleados (reemplazables por el IdP vigente de la organización). |
+| Identidad | OAuth 2.0 **Authorization Code + PKCE** con perfil **FAPI 2.0**; **Keycloak 26.8** para clientes y **Entra ID** para empleados (reemplazables por el IdP vigente de la organización). |
 | Onboarding / biometría | KYC con prueba de vida certificada y validación con el Registro Civil; acceso diario con **passkeys** (huella o Face ID). |
 | Notificaciones | **Push + Email**, SMS de respaldo; cubren **todo** movimiento del core. |
 | Auditoría | Base de solo inserción con hash encadenado + **S3 Object Lock (WORM)**. |
 | Caché | **Cache-Aside** con ElastiCache Valkey (LFU) para clientes frecuentes. |
-| Frontend | **Angular** (web) + **Flutter** (móvil); alternativa evaluada: React + React Native. |
+| Frontend | **Angular 22** (web) + **Flutter 3.47** (móvil); alternativa evaluada: React + React Native. |
 | DR | Niveles T0–T3; T0 con RPO≈0 y RTO ≤ 15 min; respaldos búnker inmutables en **Oracle Cloud (Bogotá)**. |
 
 ## Diagramas
@@ -52,6 +52,7 @@ Propuesta al **reto técnico de Arquitecto de Soluciones**: arquitectura de una 
 | Consideraciones técnicas | [`docs/02-consideraciones-tecnicas.md`](docs/02-consideraciones-tecnicas.md) |
 | Tecnologías: por qué y riesgos | [`docs/04-tecnologias-y-riesgos.md`](docs/04-tecnologias-y-riesgos.md) |
 | Decisiones de arquitectura (ADR) | [`docs/adr/`](docs/adr/README.md) |
+| Versiones de referencia | [`docs/04-tecnologias-y-riesgos.md#versiones-de-referencia-noviembre-2026`](docs/04-tecnologias-y-riesgos.md#versiones-de-referencia-noviembre-2026) |
 | Glosario de términos y herramientas | [`docs/03-glosario.md`](docs/03-glosario.md) |
 
 ## Supuestos

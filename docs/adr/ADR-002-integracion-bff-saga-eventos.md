@@ -9,7 +9,7 @@ El reto pide un API Gateway que orqueste los servicios de cliente, movimientos y
 
 ## Decisión
 
-**Amazon API Gateway** para lo transversal y **BFF por canal** (Spring WebFlux) para orquestar. Transferencias con **Saga orquestada**, idempotencia y outbox. Eventos asíncronos con **EventBridge + SQS**; CDC del core con **AWS DMS**. Servicios en **Java 25**: Spring Boot WebFlux en BFF y dominio; Quarkus nativo en los transversales livianos.
+**Amazon API Gateway** para lo transversal y **BFF por canal** (Spring WebFlux) para orquestar. Transferencias con **Saga orquestada**, idempotencia y outbox. Eventos asíncronos con **EventBridge + SQS**; CDC del core con **AWS DMS**. Servicios en **Java 25 LTS**: Spring Boot 4.1 WebFlux en BFF y dominio; Quarkus 3.40 LTS nativo en los transversales livianos.
 
 ## Alternativas descartadas
 

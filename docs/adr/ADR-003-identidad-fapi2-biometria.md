@@ -9,7 +9,7 @@ Clientes web y móvil con riesgo creciente de robo de tokens, automatización co
 
 ## Decisión
 
-**Authorization Code + PKCE** bajo **FAPI 2.0** (PAR, DPoP, step-up). **Keycloak** para clientes y **Microsoft Entra ID** para empleados, por su amplia adopción corporativa en la banca ecuatoriana. Ambos son reemplazables por el IdP vigente de la organización, previa evaluación de crecimiento, soporte de estándares, costo y continuidad del proveedor. **Onboarding:** KYC con prueba de vida certificada (ISO 30107-3 + CEN/TS 18099). **Login:** passkeys con la biometría del dispositivo.
+**Authorization Code + PKCE** bajo **FAPI 2.0** (PAR, DPoP, step-up). **Keycloak 26.8** para clientes y **Microsoft Entra ID** para empleados, por su amplia adopción corporativa en la banca ecuatoriana. Ambos son reemplazables por el IdP vigente de la organización, previa evaluación de crecimiento, soporte de estándares, costo y continuidad del proveedor. **Onboarding:** KYC con prueba de vida certificada (ISO 30107-3 + CEN/TS 18099). **Login:** passkeys con la biometría del dispositivo.
 
 ## Alternativas descartadas
 
