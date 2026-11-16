@@ -32,9 +32,9 @@ Criterio: **la última versión LTS** cuando el proyecto la publica; si no publi
 
 | Tecnología | Por qué (frente a alternativas) | Riesgos | Mitigación |
 |---|---|---|---|
-| **Java 25 LTS** | Lenguaje estándar en la banca; soporte largo, talento disponible y librerías maduras de seguridad. Un solo lenguaje para todo el backend. | Consumo de memoria mayor que Go o Rust en servicios pequeños. | Quarkus nativo en los servicios livianos; Graviton para bajar costo. |
+| **Java 25 LTS** | Lenguaje estándar en la banca; soporte largo, talento disponible y librerías maduras de seguridad. Un solo lenguaje para todo el backend. | Consumo de memoria alto en servicios pequeños si corren sobre la JVM. | Quarkus nativo en los servicios livianos; Graviton para bajar costo. |
 | **Spring Boot 4.1 WebFlux** (BFF y dominio) | Reactivo: más solicitudes con menos hilos, ideal para BFF que llaman a varios servicios a la vez. Ecosistema más grande que Quarkus o Micronaut (seguridad, Resilience4j, OpenTelemetry). | Curva alta; depuración más difícil; una llamada bloqueante (p. ej. JDBC) degrada todo el servicio. | R2DBC y clientes no bloqueantes, BlockHound en pruebas, revisiones de código. Los hilos virtuales de Java 25 quedan como opción para servicios simples. |
-| **Quarkus 3.40 LTS nativo** (Notificaciones, Auditoría) | Arranca en milisegundos y usa poca memoria, similar a Go, sin agregar un segundo lenguaje ni otra cadena de análisis de seguridad. | Compilación nativa lenta; la reflexión debe declararse; algunas librerías no son compatibles. | Usarlo solo en servicios simples; pruebas del binario nativo en CI; modo JVM como respaldo. |
+| **Quarkus 3.40 LTS nativo** (Notificaciones, Auditoría) | Arranca en milisegundos y usa poca memoria, manteniendo el mismo lenguaje, librerías y análisis de seguridad que el resto del backend. | Compilación nativa lenta; la reflexión debe declararse; algunas librerías no son compatibles. | Usarlo solo en servicios simples; pruebas del binario nativo en CI; modo JVM como respaldo. |
 
 ## Integración y eventos
 

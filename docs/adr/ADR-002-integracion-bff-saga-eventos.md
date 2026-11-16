@@ -14,7 +14,6 @@ El reto pide un API Gateway que orqueste los servicios de cliente, movimientos y
 ## Alternativas descartadas
 
 - **Orquestar en el gateway**: Acopla la lógica de negocio a la infraestructura.
-- **Go para los servicios livianos**: Agrega un segundo lenguaje, otra cadena de librerías y de análisis de seguridad; Quarkus nativo logra un consumo similar sin salir de Java.
 - **Apache Kafka (MSK)**: Sobredimensionado para una cooperativa: exige operar y dimensionar un clúster.
 
 ## Consecuencias
