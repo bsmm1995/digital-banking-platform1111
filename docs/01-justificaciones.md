@@ -1,6 +1,6 @@
 # 01 · Justificación de decisiones de diseño
 
-> Documento breve con las decisiones principales: **qué** se eligió, **por qué** y **qué se descartó**. El detalle de implementación se trabaja en la fase de diseño detallado. Las decisiones formales están en [`adr/`](adr/README.md) y el modelo C4 navegable en [IcePanel](https://s.icepanel.io/8it5iVKhNeTy2G/qBcE).
+> Documento breve con las decisiones principales: **qué** se eligió, **por qué** y **qué se descartó**. El detalle de implementación se trabaja en la fase de diseño detallado. Las decisiones formales están en [`adr/`](adr/README.md) y los términos menos comunes en el [glosario](03-glosario.md). El modelo C4 navegable está en [IcePanel](https://s.icepanel.io/8it5iVKhNeTy2G/qBcE).
 
 ## Supuestos
 

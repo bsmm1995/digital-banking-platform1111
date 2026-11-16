@@ -51,11 +51,8 @@ Propuesta al **reto técnico de Arquitecto de Soluciones**: arquitectura de una 
 | Justificaciones de diseño | [`docs/01-justificaciones.md`](docs/01-justificaciones.md) |
 | Consideraciones técnicas | [`docs/02-consideraciones-tecnicas.md`](docs/02-consideraciones-tecnicas.md) |
 | Decisiones de arquitectura (ADR) | [`docs/adr/`](docs/adr/README.md) |
+| Glosario de términos y herramientas | [`docs/03-glosario.md`](docs/03-glosario.md) |
 
 ## Supuestos
 
 Banco de tamaño mediano. El **core es genérico y on-premise**, junto con el sistema complementario y la base de datos principal. El core sigue siendo la fuente de verdad de saldos y movimientos.
-
-## Editar el diagrama de infraestructura
-
-Abrir `infra/infraestructura-aws.drawio` en [diagrams.net](https://app.diagrams.net) o en VS Code (extensión *Draw.io Integration*) y exportar como `infra/infraestructura-aws.png`.
