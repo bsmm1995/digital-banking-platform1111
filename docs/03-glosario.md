@@ -54,6 +54,7 @@ Términos, siglas y herramientas usados en la propuesta, explicados en una líne
 | **WORM** | *Write Once, Read Many*: almacenamiento que no permite modificar ni borrar lo escrito. |
 | **Hash encadenado** | Cada registro incluye la huella (hash) del anterior; cualquier alteración rompe la cadena y se detecta. |
 | **Envelope encryption** | Los datos se cifran con una llave de datos (una por cliente), y esa llave se cifra con una llave maestra de KMS. Así bastan pocas llaves en KMS para millones de clientes. |
+| **Almacén de llaves (key store)** | Tabla separada de los datos donde se guarda, cifrada, la llave de cada cliente. Sus respaldos tienen retención corta para que el borrado sea efectivo. |
 | **Crypto-shredding** | Borrar datos destruyendo su llave de cifrado: quedan ilegibles incluso en respaldos. |
 | **RTO / RPO** | RTO: tiempo máximo para recuperar el servicio. RPO: cantidad máxima de datos que se pueden perder. |
 | **Warm standby / Pilot light** | Estrategias de DR: réplica mínima siempre encendida / solo datos replicados y cómputo bajo demanda. |
