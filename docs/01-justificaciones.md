@@ -21,6 +21,8 @@
   - **Conector de Pagos BCE**, que aísla la mensajería del Banco Central.
   - **Adaptador del Core (ACL)**, una capa anticorrupción que protege al resto del sistema del modelo del legado.
   - **Notificaciones** y **Auditoría**, que exige el reto.
+- **Dos gateways:** uno **público** para clientes (web y móvil) y uno **privado** para el backoffice, accesible solo desde la red del banco o VPN. Así las APIs administrativas no quedan expuestas a internet.
+- **Login:** no pasa por el API Gateway. CloudFront + WAF envían el flujo OAuth a un balanceador público dedicado que solo expone **Keycloak**.
 - Todos los servicios siguen **arquitectura hexagonal**: cambiar el core o un proveedor solo cambia un adaptador.
 
 ![Componentes BFF Móvil](../c4/diagramas/03-componentes-bff-movil.png)

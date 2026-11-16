@@ -61,6 +61,7 @@ El banco tiene **un solo core** protegido con su propia alta disponibilidad (cl�
 
 - **En tránsito:** TLS 1.3, mTLS entre servicios y con el BCE, y *certificate pinning* en la app.
 - **En reposo:** todo cifrado con **AWS KMS** usando llaves del banco. Los datos personales sensibles se cifran además a nivel de campo.
+- **Segmentación en EKS:** un **namespace** por grupo (bff, dominio, identidad, transversales) con **políticas de red** y mTLS entre servicios (confianza cero).
 - **Accesos:** mínimo privilegio con IAM, cuentas AWS separadas por entorno y acceso de empleados con **Entra ID + MFA**.
 - **Desarrollo seguro (OWASP):** ASVS y API Security Top 10, más análisis de código y dependencias (Checkmarx, Snyk) en CI/CD.
 - **Monitoreo continuo:** CloudWatch con OpenTelemetry, GuardDuty, Security Hub, CloudTrail y AWS Config, con alertas por objetivos de nivel de servicio (SLO).

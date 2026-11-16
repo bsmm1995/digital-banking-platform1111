@@ -28,10 +28,10 @@
                 <mxCell id="c18" parent="1" style="points=[];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=0;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;verticalAlign=top;align=left;spacingLeft=30;dashed=0;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#00A4A6;fillColor=#E6F6F7;fontColor=#147EBA;" value="Subred privada · aplicación (x3 AZ)" vertex="1">
                     <mxGeometry height="390" width="660" x="520" y="300" as="geometry" />
                 </mxCell>
-                <mxCell id="c19" parent="1" style="rounded=1;arcSize=2;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#ED7100;dashed=1;verticalAlign=top;align=left;spacingLeft=10;fontColor=#B35400;fontSize=12;" value="Amazon EKS · Karpenter + Graviton · mTLS" vertex="1">
+                <mxCell id="c19" parent="1" style="rounded=1;arcSize=2;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#ED7100;dashed=1;verticalAlign=top;align=left;spacingLeft=10;fontColor=#B35400;fontSize=12;" value="Amazon EKS · Karpenter + Graviton · mTLS (service mesh) · namespaces con políticas de red" vertex="1">
                     <mxGeometry height="330" width="520" x="640" y="340" as="geometry" />
                 </mxCell>
-                <mxCell id="c20" parent="1" style="points=[];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=0;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;verticalAlign=top;align=left;spacingLeft=30;dashed=0;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#00A4A6;fillColor=#E6F6F7;fontColor=#147EBA;" value="Subred privada · datos (x3 AZ)" vertex="1">
+                <mxCell id="c400" value="ns: bff" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ED7100;dashed=1;dashPattern=3 3;verticalAlign=top;align=left;spacingLeft=6;spacingTop=-2;fontSize=9;fontColor=#B35400;" vertex="1" parent="1"><mxGeometry x="658" y="380" width="180" height="95" as="geometry" /></mxCell><mxCell id="c401" value="ns: dominio" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ED7100;dashed=1;dashPattern=3 3;verticalAlign=top;align=left;spacingLeft=6;spacingTop=-2;fontSize=9;fontColor=#B35400;" vertex="1" parent="1"><mxGeometry x="881" y="366" width="200" height="124" as="geometry" /></mxCell><mxCell id="c402" value="ns: identidad" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ED7100;dashed=1;dashPattern=3 3;verticalAlign=top;align=left;spacingLeft=6;spacingTop=-2;fontSize=9;fontColor=#B35400;" vertex="1" parent="1"><mxGeometry x="660" y="525" width="180" height="95" as="geometry" /></mxCell><mxCell id="c403" value="ns: transversales" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ED7100;dashed=1;dashPattern=3 3;verticalAlign=top;align=left;spacingLeft=6;spacingTop=-2;fontSize=9;fontColor=#B35400;" vertex="1" parent="1"><mxGeometry x="880" y="525" width="200" height="105" as="geometry" /></mxCell><mxCell id="c20" parent="1" style="points=[];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=0;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;verticalAlign=top;align=left;spacingLeft=30;dashed=0;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#00A4A6;fillColor=#E6F6F7;fontColor=#147EBA;" value="Subred privada · datos (x3 AZ)" vertex="1">
                     <mxGeometry height="150" width="660" x="520" y="710" as="geometry" />
                 </mxCell>
                 <mxCell id="c21" parent="1" style="rounded=1;arcSize=2;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#BDBDBD;dashed=1;verticalAlign=top;align=left;spacingLeft=10;fontColor=#5F5F5F;fontSize=12;" value="Eventos serverless" vertex="1">
@@ -58,7 +58,7 @@
                 <mxCell id="c28" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.mobile_client;fillColor=#232F3E;" value="Cliente / Prospecto&lt;br&gt;App Móvil (Flutter)" vertex="1">
                     <mxGeometry height="36" width="36" x="72" y="540" as="geometry" />
                 </mxCell>
-                <mxCell id="c29" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.users;fillColor=#232F3E;" value="Empleado del banco&lt;br&gt;Consola Backoffice" vertex="1">
+                <mxCell id="c29" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.users;fillColor=#232F3E;" value="Empleado del banco&lt;br&gt;Consola Backoffice&lt;br&gt;(red interna)" vertex="1">
                     <mxGeometry height="48" width="48" x="66" y="660" as="geometry" />
                 </mxCell>
                 <mxCell id="c30" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.route_53;fillColor=#8C4FFF;" value="Route 53&lt;br&gt;+ ARC (failover)" vertex="1">
@@ -73,7 +73,7 @@
                 <mxCell id="c33" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.shield;fillColor=#DD344C;" value="Shield Advanced" vertex="1">
                     <mxGeometry height="48" width="48" x="256" y="690" as="geometry" />
                 </mxCell>
-                <mxCell id="c34" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;fillColor=#E7157B;" value="API Gateway (REST regional)&lt;br&gt;valida JWT: Keycloak (clientes)&lt;br&gt;/ Entra ID (empleados)" vertex="1">
+                <mxCell id="c34" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;fillColor=#E7157B;" value="API Gateway público&lt;br&gt;(clientes · valida JWT&lt;br&gt;de Keycloak)" vertex="1">
                     <mxGeometry height="48" width="48" x="416" y="470" as="geometry" />
                 </mxCell>
                 <mxCell id="c35" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.nat_gateway;fillColor=#8C4FFF;" value="NAT Gateway" vertex="1">
@@ -224,14 +224,6 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="c75" edge="1" parent="1" source="c29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9E9E9E;strokeWidth=1;fontSize=10;fontColor=#333333;labelBackgroundColor=#EEEEEE;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="c30" value="">
-                    <mxGeometry relative="1" as="geometry">
-                        <Array as="points">
-                            <mxPoint x="185" y="684" />
-                            <mxPoint x="185" y="396" />
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="c76" edge="1" parent="1" source="c29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9E9E9E;strokeWidth=1;fontSize=10;fontColor=#333333;labelBackgroundColor=#EEEEEE;endArrow=block;endFill=1;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="c68" value="SSO + MFA (empleados)">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
@@ -313,9 +305,13 @@
                 <mxCell id="c91" edge="1" parent="1" source="c39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9E9E9E;strokeWidth=1;fontSize=10;fontColor=#333333;labelBackgroundColor=#EEEEEE;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="c35" value="egress">
                     <mxGeometry relative="1" as="geometry" />
                 </mxCell>
-                <mxCell id="c92" edge="1" parent="1" source="c35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9E9E9E;strokeWidth=1;fontSize=10;fontColor=#333333;labelBackgroundColor=#EEEEEE;endArrow=block;endFill=1;entryX=0;entryY=0.45;entryDx=0;entryDy=0;" target="c25" value="Salida a terceros (BCE · KYC · Registro Civil · LAFT · Push · Atestación)">
-                    <mxGeometry relative="1" x="-0.0642" as="geometry">
-                        <Array as="points"><mxPoint x="1530" y="219" /><mxPoint x="1530" y="294" /></Array></mxGeometry>
+                <mxCell id="c92" edge="1" parent="1" source="c35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9E9E9E;strokeWidth=1;fontSize=10;fontColor=#333333;labelBackgroundColor=#EEEEEE;endArrow=block;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="c25" value="Salida a terceros (BCE · KYC · Registro Civil · LAFT · Push · Atestación)">
+                    <mxGeometry relative="1" x="-0.0965" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1530" y="219" />
+                            <mxPoint x="1530" y="320" />
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="c93" edge="1" parent="1" source="c39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#8B6B4A;strokeWidth=1;fontSize=10;fontColor=#333333;labelBackgroundColor=#EEEEEE;endArrow=block;endFill=1;exitX=1;exitY=0.85;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="c44" value="ACL [Direct Connect]">
                     <mxGeometry relative="1" as="geometry">
@@ -345,8 +341,8 @@
                         <Array as="points">
                             <mxPoint x="1960" y="975" />
                             <mxPoint x="1960" y="610" />
-                            <mxPoint x="1535" y="610" />
-                            <mxPoint x="1535" y="256" />
+                            <mxPoint x="1510" y="610" />
+                            <mxPoint x="1510" y="256" />
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -437,7 +433,25 @@
                 <mxCell id="c340" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fillColor=#FFF8E1;strokeColor=#E0C068;rounded=1;arcSize=8;fontSize=10;fontColor=#5F4B00;spacingLeft=8;spacingRight=8;" value="&lt;b&gt;En la región DR:&lt;/b&gt; los eventos serverless (EventBridge, SQS, DMS, Kinesis, Pipes) están desplegados por IaC y se activan al conmutar; los eventos pendientes se republican desde el &lt;b&gt;Outbox&lt;/b&gt; replicado en Aurora. Borde (Route 53, CloudFront, WAF, Shield) es global; el monitoreo está activo en ambas regiones." vertex="1">
                     <mxGeometry height="46" width="690" x="400" y="1288" as="geometry" />
                 </mxCell>
-            </root>
+            <mxCell id="c410" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;fillColor=#E7157B;" value="API Gateway privado&lt;br&gt;(backoffice · valida JWT&lt;br&gt;de Entra ID)" vertex="1">
+                    <mxGeometry height="48" width="48" x="546" y="600" as="geometry" />
+                </mxCell>
+                <mxCell id="c411" edge="1" parent="1" source="c410" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9E9E9E;strokeWidth=1;fontSize=10;fontColor=#333333;labelBackgroundColor=#EEEEEE;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.86;" target="c19" value="Auditoría · Onboarding">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c412" edge="1" parent="1" source="c29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9E9E9E;strokeWidth=1;fontSize=10;fontColor=#333333;labelBackgroundColor=#EEEEEE;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;" target="c410" value="red del banco / VPN (sin internet)">
+                    <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="170" y="684" /><mxPoint x="170" y="815" /><mxPoint x="510" y="815" /><mxPoint x="510" y="624" /></Array></mxGeometry>
+                </mxCell>
+                <mxCell id="c420" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elastic_load_balancing;fillColor=#8C4FFF;" value="ALB público&lt;br&gt;(solo login OAuth)" vertex="1">
+                    <mxGeometry height="48" width="48" x="600" y="195" as="geometry" />
+                </mxCell>
+                <mxCell id="c421" edge="1" parent="1" source="c31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9E9E9E;strokeWidth=1;fontSize=10;fontColor=#333333;labelBackgroundColor=#EEEEEE;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="c420" value="login OAuth (CloudFront + WAF)">
+                    <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="372" y="494" /><mxPoint x="372" y="219" /></Array></mxGeometry>
+                </mxCell>
+                <mxCell id="c422" edge="1" parent="1" source="c420" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9E9E9E;strokeWidth=1;fontSize=10;fontColor=#333333;labelBackgroundColor=#EEEEEE;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" target="c40" value="">
+                    <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="624" y="575" /></Array></mxGeometry>
+                </mxCell>
+                </root>
         </mxGraphModel>
     </diagram>
 </mxfile>
