@@ -18,7 +18,7 @@ Propuesta al **reto técnico de Arquitecto de Soluciones**: arquitectura de una 
 | Auditoría | Base de solo inserción con hash encadenado + **S3 Object Lock (WORM)**. |
 | Caché | **Cache-Aside** con ElastiCache Valkey (LFU) para clientes frecuentes. |
 | Frontend | **Angular** (web) + **Flutter** (móvil); alternativa evaluada: React + React Native. |
-| DR | Niveles T0–T3; T0 con RPO≈0 y RTO ≤ 15 min. |
+| DR | Niveles T0–T3; T0 con RPO≈0 y RTO ≤ 15 min; respaldos búnker inmutables en **Oracle Cloud (Bogotá)**. |
 
 ## Diagramas
 

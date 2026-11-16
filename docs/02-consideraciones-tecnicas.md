@@ -51,6 +51,9 @@ El banco tiene **un solo core** protegido con su propia alta disponibilidad (cl�
 
 - **Por qué niveles:** perder una transferencia confirmada es un riesgo financiero y regulatorio, mientras que un reporte tolera más tiempo. Así el costo del DR es **proporcional a la criticidad**.
 - **Respaldos inmutables** con AWS Backup en otra región y otra cuenta, como protección frente a ransomware.
+- **Copia "búnker" fuera del proveedor:** una copia inmutable de los respaldos se envía a **Oracle Cloud (Bogotá)**. Cubre el riesgo de concentración en un solo proveedor (ciberataque masivo, sanción o conflicto que afecte a AWS en su conjunto).
+  - Las **llaves de cifrado** se custodian también **fuera de AWS** (HSM del banco o vault de Oracle); sin ellas, la copia sería ilegible.
+  - Es el **último recurso**: protege los **datos**, no la continuidad inmediata del servicio. Reconstruir la plataforma en otra nube tomaría días.
 - **Conmutación controlada** con Route 53 ARC.
 - **Simulacros de DR** semestrales.
 
@@ -78,8 +81,9 @@ El banco tiene **un solo core** protegido con su propia alta disponibilidad (cl�
 |---|---|
 | **us-east-1** | ✅ Principal: catálogo completo de servicios, menor costo y buena conectividad desde Ecuador. |
 | us-east-2 | ✅ DR: mismo precio y otra zona geográfica. |
-| São Paulo | ❌ De las regiones más caras de AWS; la ruta desde Ecuador no suele ser más corta. |
-| Chile | 🔜 Evolución: se re-evalúa cuando tenga disponibilidad general y catálogo completo. |
+| São Paulo | ❌ Más cara, con mayor retraso de replicación; además, al seguir siendo AWS no elimina el riesgo de proveedor. |
+| Chile | 🔜 Evolución: abierta a clientes seleccionados; se re-evaluará como región AWS cuando tenga disponibilidad general, catálogo completo y precios convenientes. |
+| Multicloud activo (p. ej. Oracle Bogotá / Santiago) | ❌ Duplica operación, seguridad y redes, y obliga a renunciar a servicios administrados. Se usa **solo para respaldos búnker** y estrategia de salida. |
 
 **Baja latencia:**
 - **CloudFront** sirve la web desde el borde, cerca del usuario.

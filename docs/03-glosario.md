@@ -54,6 +54,7 @@ Términos, siglas y herramientas usados en la propuesta, explicados en una líne
 | **Crypto-shredding** | Borrar datos destruyendo su llave de cifrado: quedan ilegibles incluso en respaldos. |
 | **RTO / RPO** | RTO: tiempo máximo para recuperar el servicio. RPO: cantidad máxima de datos que se pueden perder. |
 | **Warm standby / Pilot light** | Estrategias de DR: réplica mínima siempre encendida / solo datos replicados y cómputo bajo demanda. |
+| **Respaldo búnker** | Copia inmutable de los datos en otro proveedor de nube, para sobrevivir a una falla total del proveedor principal. |
 | **Multi-AZ** | Desplegar en varias zonas de disponibilidad (data centers separados) de una misma región. |
 
 ## Seguridad e identidad
