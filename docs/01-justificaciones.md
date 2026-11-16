@@ -1,6 +1,6 @@
 # 01 · Justificación de decisiones de diseño
 
-> Documento breve con las decisiones principales: **qué** se eligió, **por qué** y **qué se descartó**. El detalle de implementación se trabaja en la fase de diseño detallado. Las decisiones formales están en [`adr/`](adr/README.md) y los términos menos comunes en el [glosario](03-glosario.md). El modelo C4 navegable está en [IcePanel](https://s.icepanel.io/8it5iVKhNeTy2G/qBcE).
+> Documento breve con las decisiones principales: **qué** se eligió, **por qué** y **qué se descartó**. El detalle de implementación se trabaja en la fase de diseño detallado. Las decisiones formales están en [`adr/`](adr/README.md), las ventajas y riesgos de cada tecnología en [04 · Tecnologías y riesgos](04-tecnologias-y-riesgos.md) y los términos menos comunes en el [glosario](03-glosario.md). El modelo C4 navegable está en [IcePanel](https://s.icepanel.io/8it5iVKhNeTy2G/qBcE).
 
 ## Supuestos
 
@@ -109,7 +109,7 @@
 | **Fortalezas** | Angular: estructura definida, TypeScript obligatorio y seguridad integrada (protección XSS, CSP). Es muy usado en banca. Flutter: compila a código nativo y es fuerte en fintech. | El ecosistema y la oferta de talento más grandes. Un solo lenguaje (TypeScript). |
 | **Desventajas** | Curva de aprendizaje alta. Dos lenguajes (TypeScript y Dart). | Menos estructura: más decisiones por equipo y riesgo de inconsistencia. |
 
-**Por qué A:** la banca en línea es una aplicación **transaccional detrás de un login**, donde pesan más la consistencia y la seguridad que la flexibilidad. La desventaja de los dos lenguajes se mitiga con **contract-first**: los contratos OpenAPI generan los clientes de web y móvil.
+**Por qué A:** la banca en línea es una aplicación **transaccional detrás de un login**, donde pesan más la consistencia y la seguridad que la flexibilidad. La desventaja de los dos lenguajes se mitiga con **contract-first**: los contratos OpenAPI generan los clientes de web y móvil. Los riesgos de cada opción (por ejemplo, las migraciones frecuentes de Angular) están en [04 · Tecnologías y riesgos](04-tecnologias-y-riesgos.md#frontend).
 
 ## 9. Patrones aplicados
 

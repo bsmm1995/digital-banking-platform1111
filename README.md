@@ -50,6 +50,7 @@ Propuesta al **reto técnico de Arquitecto de Soluciones**: arquitectura de una 
 | Diagrama de infraestructura | [`infra/infraestructura-aws.png`](infra/infraestructura-aws.png) (fuente editable: [`infra/infraestructura-aws.drawio`](infra/infraestructura-aws.drawio)) |
 | Justificaciones de diseño | [`docs/01-justificaciones.md`](docs/01-justificaciones.md) |
 | Consideraciones técnicas | [`docs/02-consideraciones-tecnicas.md`](docs/02-consideraciones-tecnicas.md) |
+| Tecnologías: por qué y riesgos | [`docs/04-tecnologias-y-riesgos.md`](docs/04-tecnologias-y-riesgos.md) |
 | Decisiones de arquitectura (ADR) | [`docs/adr/`](docs/adr/README.md) |
 | Glosario de términos y herramientas | [`docs/03-glosario.md`](docs/03-glosario.md) |
 
