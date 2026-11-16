@@ -7,7 +7,7 @@
 | Norma | Cómo se atiende |
 |---|---|
 | **LOPDP** y su Reglamento | Hay consentimientos por finalidad, minimización de datos y atención de derechos. AWS actúa como **encargado del tratamiento** mediante contrato y cláusulas tipo. La SPDP aclaró que un encargado fuera del país no convierte, por sí solo, el tratamiento en transferencia internacional. |
-| Derecho de supresión | **Cifrado con una llave por cliente** (AWS KMS). Destruir la llave deja sus datos ilegibles, incluso en respaldos que no se pueden modificar. |
+| Derecho de supresión | **Cifrado con una llave de datos por cliente** (*envelope encryption*): pocas llaves maestras en AWS KMS cifran las llaves de cada cliente, que se guardan en un almacén de llaves separado. Destruir la llave del cliente deja sus datos ilegibles, incluso en respaldos que no se pueden modificar. |
 | **Superintendencia de Bancos**: riesgo operativo, ciberseguridad y continuidad | Plan de continuidad con objetivos de recuperación (RTO/RPO) por nivel, pruebas periódicas de DR, gestión de proveedores críticos y monitoreo 24/7. |
 | **Banco Central del Ecuador**: SPI y Red de Pagos Instantáneos | Conector dedicado con mensajería **ISO 20022** y conciliación diaria. |
 | **LAFT / UAFE** | Screening en el onboarding y monitoreo antifraude de las transacciones. |
