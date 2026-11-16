@@ -9,7 +9,7 @@ El reto exige auditar toda acción del cliente, cachear a los clientes frecuente
 
 ## Decisión
 
-**Auditoría:** eventos → servicio en Go → base de solo inserción con hash encadenado → S3 Object Lock (WORM). **Caché:** Cache-Aside con ElastiCache Valkey (LFU) e invalidación por eventos del core. **Notificaciones:** push + email, con SMS de respaldo, disparadas por los cambios del core.
+**Auditoría:** eventos → servicio en Quarkus (nativo) → base de solo inserción con hash encadenado → S3 Object Lock (WORM). **Caché:** Cache-Aside con ElastiCache Valkey (LFU) e invalidación por eventos del core. **Notificaciones:** push + email, con SMS de respaldo, disparadas por los cambios del core.
 
 ## Alternativas descartadas
 

@@ -73,6 +73,7 @@ El banco tiene **un solo core** protegido con su propia alta disponibilidad (cl�
 - **Arquitectura hexagonal:** cambiar el core o un proveedor (KYC, mensajería, IdP) solo cambia un adaptador.
 - **Escalado automático e independiente** por servicio en EKS. EventBridge y SQS escalan solos.
 - **Reactivo** (Spring WebFlux): más throughput con menos recursos.
+- **Quarkus nativo** en los servicios transversales: arranque en milisegundos y poca memoria, para escalar rápido ante picos (p. ej. ráfagas de notificaciones).
 
 ## 6. Infraestructura cloud y baja latencia
 

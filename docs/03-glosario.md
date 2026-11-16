@@ -30,6 +30,9 @@ Términos, siglas y herramientas usados en la propuesta, explicados en una líne
 
 | Término | Significado |
 |---|---|
+| **Spring Boot WebFlux** | Framework Java para servicios **reactivos**: atiende muchas solicitudes con pocos hilos sin bloquearse. |
+| **Quarkus** | Framework Java orientado a la nube; puede compilarse a imagen nativa para arrancar en milisegundos con poca memoria. |
+| **Imagen nativa (GraalVM / Mandrel)** | Compilar la aplicación Java a un ejecutable del sistema operativo, sin JVM: arranque instantáneo y menos memoria, a cambio de compilaciones más lentas. |
 | **C4** | Modelo para diagramar software en niveles: Contexto, Contenedores, Componentes (y Código). |
 | **ADR** | *Architecture Decision Record*: documento corto que registra una decisión y sus alternativas. |
 | **Arquitectura hexagonal** | El dominio (reglas de negocio) se aísla de la tecnología mediante **puertos** (interfaces) y **adaptadores** (implementaciones). |

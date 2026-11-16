@@ -16,6 +16,7 @@
 
 - **Amazon API Gateway** resuelve lo transversal: throttling, cuotas, validación de contrato y token, y enlace privado hacia los servicios.
 - La **orquestación vive en un BFF por canal** (*Backend for Frontend*: BFF Web y BFF Móvil, en Spring Boot WebFlux). Un gateway no debe contener lógica de negocio.
+- **Un solo lenguaje, Java 25, con dos frameworks:** Spring Boot WebFlux para los BFF y los servicios de dominio (ecosistema maduro, reactivo); **Quarkus** compilado a **imagen nativa** (GraalVM/Mandrel) para los servicios transversales livianos (Notificaciones y Auditoría), que arrancan en milisegundos y usan poca memoria. Se descarta un segundo lenguaje (Go): un mismo equipo, mismas librerías de seguridad y observabilidad y un solo pipeline de análisis (SAST/SCA).
 - Servicios que orquesta: **Clientes**, **Movimientos** y **Transferencias**, como pide el reto. Se agregan cinco justificados:
   - **Onboarding**, para el alta digital.
   - **Conector de Pagos BCE**, que aísla la mensajería del Banco Central.
@@ -88,7 +89,7 @@
 
 **Auditoría:**
 - Cada acción del cliente (quién, qué, cuándo, desde qué dispositivo y con qué resultado) se publica como evento.
-- Un servicio liviano en **Go** la guarda en una base **solo de inserción** con **hash encadenado**, para que cualquier manipulación sea detectable.
+- Un servicio liviano en **Quarkus nativo** la guarda en una base **solo de inserción** con **hash encadenado**, para que cualquier manipulación sea detectable.
 - Se archiva en **S3 Object Lock (WORM)**, un almacenamiento que no se puede modificar ni borrar.
 - *Amazon QLDB se descarta porque AWS ya no le da soporte.*
 
