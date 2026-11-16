@@ -18,9 +18,27 @@
 
 - **Multi-AZ** en todos los componentes: EKS, Aurora y ElastiCache se reparten en 3 zonas de disponibilidad. EventBridge y SQS son regionales por diseño.
 - **Resiliencia en el código:** circuit breaker, timeouts y reintentos con Resilience4j.
-- **Degradación controlada:** si el core no responde, las consultas muestran el último dato conocido y las transferencias quedan **en cola sin perderse**.
 - **Desacoplamiento por eventos:** si Notificaciones o Auditoría fallan, los mensajes esperan en SQS y se procesan al volver.
-- **Conexión al core redundante:** 2 enlaces Direct Connect y una VPN de respaldo.
+- **Conexión al core redundante:** 2 enlaces Direct Connect y una VPN de respaldo, hacia el data center **principal y el alterno** del banco.
+
+### ¿Qué pasa si se cae el core?
+
+El banco tiene **un solo core** protegido con su propia alta disponibilidad (clúster, réplica de base de datos y centro alterno). La plataforma no lo duplica: lo **aísla** para que su caída no se propague.
+
+- **Aislamiento:** el *circuit breaker* del Adaptador Core (ACL) deja de llamar al core y responde de inmediato "no disponible", evitando una falla en cascada.
+- **Conmutación transparente:** el ACL apunta a una dirección única (DNS o IP virtual). Si el banco activa su centro alterno, la plataforma lo sigue sin cambios.
+
+| Función | Comportamiento con el core caído |
+|---|---|
+| Login | ✅ Disponible (Keycloak no depende del core) |
+| Perfil y últimos movimientos | ⚠️ Desde la caché, indicando la hora de la información |
+| Saldo disponible | ❌ "Temporalmente no disponible" (el saldo no se cachea) |
+| Transferencias inmediatas | ❌ Rechazo controlado con mensaje claro |
+| Transferencias programadas | ⏳ Registradas; se ejecutan al recuperarse el core |
+| Onboarding | ⏳ KYC y screening continúan; la apertura de cuenta queda en espera |
+| Notificaciones | ⏸️ Se reanudan sin pérdida: el CDC continúa desde su último punto de lectura |
+
+> **Si el core fuera SaaS del proveedor:** la disponibilidad y el DR se exigen por contrato (SLA, RTO, RPO), el CDC se reemplaza por los eventos del proveedor, y el ACL permite cambiar de proveedor sin afectar al resto. Se gestiona como riesgo de tercero ante la Superintendencia de Bancos, incluido un plan de salida.
 
 ## 3. Recuperación ante desastres
 
